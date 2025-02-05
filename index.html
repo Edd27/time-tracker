@@ -42,31 +42,40 @@
         </div>
         <button
           type="submit"
-          class="px-4 py-2 border border-emerald-900 text-emerald-900 cursor-pointer rounded bg-emerald-300 hover:bg-emerald-400">
+          class="duration-200 px-4 py-2 border border-emerald-900 text-emerald-900 cursor-pointer rounded bg-emerald-300 hover:bg-emerald-400">
           Guardar
         </button>
       </form>
-      <div
-        class="h-fit overflow-x-auto w-full border border-gray-200 rounded shadow">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-            <tr>
-              <th scope="col" class="px-6 py-3">Tarea</th>
-              <th scope="col" class="px-6 py-3">Notas</th>
-              <th scope="col" class="px-6 py-3">Inicio</th>
-              <th scope="col" class="px-6 py-3">Fin</th>
-            </tr>
-          </thead>
-          <tbody id="currentTaskTable"></tbody>
-          <tfoot class="text-xs text-gray-700 uppercase bg-gray-50">
-            <tr>
-              <td class="px-6 py-3"></td>
-              <td class="px-6 py-3"></td>
-              <th scope="row" class="px-6 py-3">Total</th>
-              <th scope="row" class="px-6 py-3" id="totalHoursContainer"></th>
-            </tr>
-          </tfoot>
-        </table>
+      <div class="w-full h-fit grid gap-4 hidden" id="tasksContainer">
+        <div
+          id="currentTasksContainer"
+          class="h-fit overflow-x-auto w-full border border-gray-200 rounded shadow">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+              <tr>
+                <th scope="col" class="px-6 py-3">Tarea</th>
+                <th scope="col" class="px-6 py-3">Notas</th>
+                <th scope="col" class="px-6 py-3">Inicio</th>
+                <th scope="col" class="px-6 py-3">Fin</th>
+              </tr>
+            </thead>
+            <tbody id="currentTaskTable"></tbody>
+            <tfoot class="text-xs text-gray-700 uppercase bg-gray-50">
+              <tr>
+                <td class="px-6 py-3"></td>
+                <td class="px-6 py-3"></td>
+                <th scope="row" class="px-6 py-3">Total</th>
+                <th scope="row" class="px-6 py-3" id="totalHoursContainer"></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <button
+          type="button"
+          id="btnClean"
+          class="duration-200 px-4 py-2 border border-red-900 text-red-900 cursor-pointer rounded bg-red-300 hover:bg-red-400">
+          Limpiar
+        </button>
       </div>
     </main>
     <script type="module" src="index.js"></script>

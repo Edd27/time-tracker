@@ -43,6 +43,12 @@ function showCurrentTasks() {
 
   if (container) {
     const currentTasks = getCurrentTasks();
+    if (currentTasks.length > 0) {
+      const tasksContainer = $("tasksContainer");
+      if (tasksContainer) {
+        tasksContainer.classList.remove("hidden");
+      }
+    }
     container.innerHTML = "";
     currentTasks.forEach((task) => {
       container.innerHTML += taskListItem(task);
@@ -59,8 +65,13 @@ function showTotalHours() {
   }
 }
 
+function cleanStorage() {
+  window.localStorage.removeItem("tasks");
+}
+
 function main() {
   const form = $("taskForm");
+  const btnClean = $("btnClean");
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -96,6 +107,14 @@ function main() {
 
     showCurrentTasks();
     showTotalHours();
+  });
+
+  btnClean.addEventListener("click", (event) => {
+    cleanStorage();
+    const tasksContainer = $("tasksContainer");
+    if (tasksContainer) {
+      tasksContainer.classList.add("hidden");
+    }
   });
 
   showCurrentTasks();
