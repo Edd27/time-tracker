@@ -7,49 +7,67 @@
     <title>Mi tiempo</title>
   </head>
   <body>
-    <main class="min-h-screen p-4">
-      <form id="taskForm" class="grid gap-4">
+    <main class="min-h-screen p-4 flex flex-col lg:flex-row gap-4">
+      <form id="taskForm" class="grid gap-4 h-fit min-w-sm">
         <div class="w-full grid gap-2">
           <label for="title">Titulo</label>
           <input
             type="text"
             name="title"
             id="title"
-            class="border rounded outline-none p-2" />
+            class="border border-gray-200 rounded outline-none p-2" />
         </div>
         <div class="w-full grid gap-2">
           <label for="start">Inicio</label>
           <input
-            type="datetime-local"
+            type="time"
             name="start"
             id="start"
-            class="border rounded outline-none p-2" />
+            class="border border-gray-200 rounded outline-none p-2" />
         </div>
         <div class="w-full grid gap-2">
           <label for="end">Fin</label>
           <input
-            type="datetime-local"
+            type="time"
             name="end"
             id="end"
-            class="border rounded outline-none p-2" />
+            class="border border-gray-200 rounded outline-none p-2" />
         </div>
         <div class="w-full grid gap-2">
           <label for="notes">Notas</label>
           <textarea
             name="notes"
             id="notes"
-            class="border rounded outline-none p-2"></textarea>
+            class="border border-gray-200 rounded outline-none p-2"></textarea>
         </div>
         <button
           type="submit"
-          class="px-4 py-2 border cursor-pointer rounded bg-emerald-300 hover:bg-emerald-400">
+          class="px-4 py-2 border border-emerald-900 text-emerald-900 cursor-pointer rounded bg-emerald-300 hover:bg-emerald-400">
           Guardar
         </button>
       </form>
-      <hr class="my-10 border-gray-200" />
-      <section>
-        <ul id="currentTasksList"></ul>
-      </section>
+      <div
+        class="h-fit overflow-x-auto w-full border border-gray-200 rounded shadow">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+          <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3">Tarea</th>
+              <th scope="col" class="px-6 py-3">Notas</th>
+              <th scope="col" class="px-6 py-3">Inicio</th>
+              <th scope="col" class="px-6 py-3">Fin</th>
+            </tr>
+          </thead>
+          <tbody id="currentTaskTable"></tbody>
+          <tfoot class="text-xs text-gray-700 uppercase bg-gray-50">
+            <tr>
+              <td class="px-6 py-3"></td>
+              <td class="px-6 py-3"></td>
+              <th scope="row" class="px-6 py-3">Total</th>
+              <th scope="row" class="px-6 py-3" id="totalHoursContainer"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </main>
     <script type="module" src="index.js"></script>
   </body>
